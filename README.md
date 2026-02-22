@@ -4,14 +4,17 @@ A structured hospitality investment brochure for **Decade Street Ekam, Hyderabad
 
 ## Run Locally
 
-### Option 1: PHP Built-in Server
-```bash
-php -S localhost:8000
-```
-Then open http://localhost:8000
+Open `index.html` directly in a browser, or serve with any static file server:
 
-### Option 2: Any Web Server
-Place the project in your web root (Apache, Nginx, etc.) and serve `index.php`.
+```bash
+# Python
+python -m http.server 8000
+
+# Node (npx)
+npx serve
+```
+
+Then open http://localhost:8000
 
 ## Structure
 - `index.php` — Main brochure with all 13 slides
