@@ -366,9 +366,11 @@ h2 {
 .overview-split {
     display: grid;
     grid-template-columns: 1fr 1.1fr;
-    gap: 2rem;
+    gap: 3rem;
     align-items: start;
-    max-width: 980px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .overview-visual {
@@ -788,7 +790,24 @@ h2 {
 
 .close-brand { font-size: clamp(1.5rem, 4vw, 2rem); letter-spacing: 0.15em; color: var(--accent-light); }
 .close-location { font-size: 0.9rem; letter-spacing: 0.2em; color: var(--text-muted); margin-top: 0.5rem; }
-.close-tagline { font-size: 0.85rem; color: var(--text-muted); }
+.close-tagline { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+
+.contact-details {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.contact-project { font-size: 0.8rem; letter-spacing: 0.15em; color: var(--text-muted); margin-bottom: 0.35rem; }
+.contact-name { font-size: 1rem; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; }
+.contact-phone {
+    font-size: 1.05rem;
+    color: var(--accent-light);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+}
+
+.contact-phone:hover { text-decoration: underline; }
 
 /* ——— DOTS ——— */
 .fp-dots {
@@ -814,3 +833,578 @@ h2 {
 
 .fp-dot:hover { opacity: 0.8; background: var(--accent); }
 .fp-dot.active { background: var(--accent); opacity: 1; transform: scale(1.2); }
+
+/* ——— CONCEPT SPLIT (with gallery) ——— */
+.concept-split {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.concept-visuals {
+    position: relative;
+}
+
+.concept-gallery {
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    gap: 1rem;
+}
+
+.concept-gallery .gallery-main {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.concept-gallery .gallery-accent {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.concept-content {
+    position: relative;
+}
+
+.concept-content .section-num {
+    position: static;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 800px) {
+    .concept-split {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .concept-gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+    
+    .concept-gallery .gallery-main,
+    .concept-gallery .gallery-accent {
+        height: 180px;
+    }
+}
+
+/* ——— IDEA SPLIT (with visual) ——— */
+.fp-idea {
+    position: relative;
+}
+
+.idea-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.idea-split {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.idea-visual {
+    text-align: center;
+}
+
+.idea-visual img {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.visual-caption {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0.75rem;
+}
+
+.idea-split .section-content {
+    max-width: 100%;
+}
+
+.idea-split .section-content .section-num {
+    position: static;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 800px) {
+    .idea-split {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .idea-visual {
+        order: -1;
+    }
+    
+    .idea-visual img {
+        max-width: 280px;
+    }
+}
+
+/* ——— AMENITY PREVIEWS ——— */
+.amenity-previews {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.amenity-preview {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.amenity-preview img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.amenity-preview:hover img {
+    transform: scale(1.05);
+}
+
+.amenity-preview span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.5rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text);
+}
+
+/* ——— REVENUE VISUAL GRID ——— */
+.fp-revenue { background: var(--bg); }
+
+.fp-revenue .section-content.wide {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+.revenue-visual-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.revenue-visual-card {
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.revenue-visual-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.revenue-visual-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.revenue-card-content {
+    padding: 1rem;
+    text-align: center;
+}
+
+.revenue-card-content span {
+    display: block;
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-bottom: 0.35rem;
+}
+
+.revenue-card-content h4 {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+}
+
+.revenue-card-content p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+@media (max-width: 800px) {
+    .revenue-visual-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .revenue-visual-card img {
+        height: 120px;
+    }
+}
+
+@media (max-width: 500px) {
+    .revenue-visual-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ——— AUDIENCE WITH BACKGROUND ——— */
+.fp-audience {
+    position: relative;
+}
+
+.audience-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.12;
+    z-index: 0;
+}
+
+.fp-audience .section-content {
+    position: relative;
+    z-index: 1;
+    background: rgba(10, 12, 15, 0.85);
+    padding: 2.5rem;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+}
+
+.fp-audience .section-content .section-num {
+    position: static;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* ——— OVERVIEW ADJUSTMENTS ——— */
+.overview-main-img {
+    margin-bottom: 0.5rem;
+}
+
+/* ——— SPLIT SECTION BASE ——— */
+.split-section-wrapper {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ——— PRICING SPLIT ——— */
+.fp-pricing-split {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 4rem !important;
+}
+
+.fp-pricing-split > .pricing-visual,
+.fp-pricing-split > .section-content {
+    flex: 1;
+}
+
+.fp-pricing-split {
+    display: grid !important;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pricing-visual {
+    position: relative;
+}
+
+.pricing-visual img {
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.fp-pricing-split .section-content {
+    max-width: 100%;
+}
+
+.fp-pricing-split .section-content .section-num {
+    position: static;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* ——— QUALITY GRID ——— */
+.fp-quality-grid {
+    display: grid !important;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 4rem !important;
+}
+
+.quality-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1.5fr 1fr;
+    gap: 0.75rem;
+}
+
+.quality-img-main {
+    grid-column: span 2;
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.quality-img-accent {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.fp-quality-grid .split-content .section-num {
+    position: static;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* ——— EXIT SPLIT ——— */
+.fp-exit-split {
+    display: grid !important;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 4rem !important;
+}
+
+.exit-visual img {
+    width: 100%;
+    height: auto;
+    max-height: 65vh;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.fp-exit-split .section-content {
+    max-width: 100%;
+}
+
+.fp-exit-split .section-content .section-num {
+    position: static;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* ——— LEGAL SPLIT ——— */
+.fp-legal-split {
+    display: grid !important;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 4rem !important;
+}
+
+.legal-visual img {
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.fp-legal-split .section-content {
+    max-width: 100%;
+}
+
+.fp-legal-split .section-content .section-num {
+    position: static;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* ——— SUMMARY SPLIT ——— */
+.fp-summary-split {
+    display: grid !important;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 4rem !important;
+}
+
+.summary-visual img {
+    width: 100%;
+    height: auto;
+    max-height: 65vh;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.fp-summary-split .section-content {
+    max-width: 100%;
+}
+
+.fp-summary-split .section-content .section-num {
+    position: static;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* ——— FAQ SPLIT ——— */
+.fp-faq-split {
+    display: grid !important;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 4rem !important;
+}
+
+.faq-visual img {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.fp-faq-split .section-content {
+    max-width: 100%;
+}
+
+.fp-faq-split .section-content .section-num {
+    position: static;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.fp-faq-split .faq-list {
+    max-height: none;
+    overflow: visible;
+}
+
+/* ——— INCOME BACKGROUND ——— */
+.income-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.12;
+    z-index: 0;
+}
+
+.fp-income .section-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* ——— RESPONSIVE SPLITS ——— */
+@media (max-width: 900px) {
+    .fp-pricing-split,
+    .fp-quality-grid,
+    .fp-exit-split,
+    .fp-legal-split,
+    .fp-summary-split,
+    .fp-faq-split {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+        padding: 5rem 2rem 2rem !important;
+    }
+    
+    .concept-split,
+    .idea-split,
+    .overview-split {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+        padding: 0 2rem !important;
+    }
+    
+    .fp-revenue .section-content.wide {
+        padding: 0 1.5rem;
+    }
+    
+    .pricing-visual,
+    .exit-visual,
+    .legal-visual,
+    .summary-visual,
+    .faq-visual {
+        order: -1;
+    }
+    
+    .pricing-visual img,
+    .exit-visual img,
+    .legal-visual img,
+    .summary-visual img,
+    .faq-visual img {
+        max-height: 35vh;
+    }
+    
+    .quality-images {
+        order: -1;
+    }
+    
+    .quality-img-main {
+        height: 200px;
+    }
+    
+    .quality-img-accent {
+        height: 120px;
+    }
+}
