@@ -90,7 +90,14 @@
     // Mobile menu
     if (headerToggle && headerNav) {
         headerToggle.addEventListener('click', () => {
-            headerNav.classList.toggle('open');
+            const isOpen = headerNav.classList.toggle('open');
+            headerToggle.setAttribute('aria-expanded', isOpen);
+        });
+        document.addEventListener('click', (e) => {
+            if (headerNav.classList.contains('open') && !headerNav.contains(e.target) && !headerToggle.contains(e.target)) {
+                headerNav.classList.remove('open');
+                headerToggle.setAttribute('aria-expanded', 'false');
+            }
         });
     }
 
