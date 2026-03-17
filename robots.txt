@@ -1,0 +1,6 @@
+# Allow all crawlers; replace with your live domain
+User-agent: *
+Allow: /
+
+# Sitemap location (replace with your live domain)
+Sitemap: https://www.decadestreetekam.com/sitemap.xml
